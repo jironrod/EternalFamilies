@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org"
-	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-sringsecurity3">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
 <title>Eternal Families</title>
@@ -9,7 +8,6 @@
 	rel="stylesheet"
 	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="./styling/style.css">
 </head>
 <body>
 
@@ -32,26 +30,34 @@
 			</div>
 		</div>
 	</nav>
-
+	
 	<br>
 
 	<div class="container">
-
-
-		<h1>
-			Welcome to the Eternals, <span
-				sec:authentication="principal.username"></span>!
-		</h1>
-
-		<br>
-
-		<h2>The largest community of temple enthusiasts</h2>
-
-		<!-- attempted to add img functionality...FAIL -->
-		<!-- <img src="DCTemple.jpg" alt="Washington, D.C. Temple"> -->
-
-		<br>
-
+	
+		<h1>Location</h1>
+		
+		<hr>
+		
+		<form action="#" th:action="@{/saveLocation}" th:object="${location}"
+			method="POST">
+			
+			<input type="text" th:field="*{locationName}"
+				placeholder="Location Name" class="form-control mb-4" required>
+				
+			<input type="text" th:field="*{locationAddress}"
+				placeholder="Location Address" class="form-control mb-4" required>
+				
+			<input type="text" th:field="*{locationDescription}" 
+				placeholder="Location Description" class="form-control mb-4" required>
+				
+			<button type="submit" class="btn btn-info">Save Location</button>
+		</form>
+		
+		<hr>
+		
+		<a th:href="@{/locations}" class="btn btn-outline-light">Back to Location List</a>
+		
 	</div>
 </body>
 </html>

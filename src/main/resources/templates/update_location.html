@@ -20,9 +20,11 @@
 
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-				<a class="nav-link" href="#">Photos</a> <a class="nav-link"
-					href="/events">Events</a> <a class="nav-link" href="/locations">Locations</a>
+				<a class="nav-link" href="#">Photos</a> 
+				<a class="nav-link"href="/events">Events</a> 
+				<a class="nav-link" href="/locations">Locations</a>
 				<a class="nav-link" href="/community">Community</a>
+				
 			</div>
 			<div class="navbar-nav">
 				<a href="/login" class="btn btn-info ml-5" role="button">Log Out</a>
@@ -30,33 +32,33 @@
 			</div>
 		</div>
 	</nav>
-	
+
 	<br>
 
 	<div class="container">
 	
-		<h1>Event</h1>
+		<h2>Update Location</h2>
 		
 		<hr>
-		
-		<form action="#" th:action="@{/saveEvent}" th:object="${event}"
-			method="POST">
-			
-			<input type="text" th:field="*{eventName}"
-				placeholder="Event Name" class="form-control mb-4" required>
+
+		<form action="#" th:action="@{/saveLocation}" th:object="${location}" method="POST">
+
+			<!-- Add hidden form field to handle update -->
+			<input type="hidden" th:field="*{id}" class="form-control mb-4">
+
+			<input type="text" th:field="*{locationName}" class="form-control mb-4">
+
+			<input type="text" th:field="*{locationAddress}" class="form-control mb-4">
+
+			<input type="text" th:field="*{locationDescription}" class="form-control mb-4">
+
+			<button type="submit" class="btn btn-info">Update</button>
 				
-			<input type="text" th:field="*{eventLocation}"
-				placeholder="Event Location" class="form-control mb-4" required>
-				
-			<input type="text" th:field="*{eventDescription}" placeholder="Event Description"
-				class="form-control mb-4" required>
-				
-			<button type="submit" class="btn btn-info">Save Event</button>
 		</form>
 		
 		<hr>
 		
-		<a th:href="@{/events}" class="btn btn-outline-light">Back to Event List</a>
+		<a th:href="@{/locations}" class="btn btn-outline-secondary">Back to Locations</a>
 		
 	</div>
 </body>

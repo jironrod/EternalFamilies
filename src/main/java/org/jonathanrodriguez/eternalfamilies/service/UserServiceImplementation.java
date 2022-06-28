@@ -2,6 +2,8 @@ package org.jonathanrodriguez.eternalfamilies.service;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.jonathanrodriguez.eternalfamilies.model.Role;
@@ -19,8 +21,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImplementation implements UserService {
 
+	@Autowired
 	private UserRepository userRepository;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
@@ -32,11 +35,8 @@ public class UserServiceImplementation implements UserService {
 	@Override
 	public User save(UserRegistrationDto registrationDto) {
 
-		User user = new User(null, 
-				registrationDto.getFirstName(), 
-				registrationDto.getLastName(),
-				registrationDto.getEmail(), 
-				passwordEncoder.encode(registrationDto.getPassword()),
+		User user = new User(null, registrationDto.getFirstName(), registrationDto.getLastName(),
+				registrationDto.getEmail(), passwordEncoder.encode(registrationDto.getPassword()),
 				Arrays.asList(new Role("ROLE_USER")));
 
 		return userRepository.save(user);
@@ -46,7 +46,7 @@ public class UserServiceImplementation implements UserService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
 		User user = userRepository.findByEmail(username);
-		
+
 		if (user == null) {
 			throw new UsernameNotFoundException("Invalid username or passoword");
 		}
@@ -57,5 +57,28 @@ public class UserServiceImplementation implements UserService {
 	private Collection<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles) {
 
 		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+
+		return userRepository.findAll();
+	}
+
+	@Override
+	public User getUserById(long id) {
+
+		Optional<User> optional = userRepository.findById(id);
+
+		User user = null;
+
+		if (optional.isPresent()) {
+			user = optional.get();
+
+		} else {
+			throw new RuntimeException("User not found for id :: " + id);
+		}
+
+		return user;
 	}
 }

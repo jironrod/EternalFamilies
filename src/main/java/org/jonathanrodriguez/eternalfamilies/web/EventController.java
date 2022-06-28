@@ -35,8 +35,8 @@ public class EventController {
 		return "redirect:/events";
 	}
 
-	@GetMapping("/showFormForUpdate/{id}")
-	public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+	@GetMapping("/showEventForUpdate/{id}")
+	public String showEventForUpdate(@PathVariable(value = "id") long id, Model model) {
 
 		// get event from the service
 		Event event = eventService.getEventById(id);

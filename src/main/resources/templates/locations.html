@@ -25,39 +25,39 @@
 				<a class="nav-link" href="/community">Community</a>
 			</div>
 			<div class="navbar-nav">
-				<a href="/login" class="btn btn-info ml-5" role="button">Log Out</a>
+				<a href="/login" class="btn btn-info">Log Out</a>
 
 			</div>
 		</div>
 	</nav>
-
+	
 	<br>
-
+	
 	<div class="container">
-
-		<h1>Event List</h1>
+	
+		<h1>Location List</h1>
 		
 		<hr>
 
-		<a th:href="@{/eventForm}" class="btn btn-primary mb-2">Add Event</a>
-		
+		<a th:href="@{/locationForm}" class="btn btn-primary mb-2">Add Location</a>
+
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Event Name</th>
-					<th>Event Location</th>
-					<th>Event Description</th>
+					<th>Location Name</th>
+					<th>Location Address</th>
+					<th>Location Description</th>
 					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="event : ${listEvents}">
-					<td th:text="${event.eventName}"></td>
-					<td th:text="${event.eventLocation}"></td>
-					<td		 th:text="${event.eventDescription}"></td>
-					<td><a th:href="@{/showEventForUpdate/{id}(id=${event.id})}"
-						class="btn btn-outline-info btn-sm">Update</a> <a
-						th:href="@{/deleteEvent/{id}(id=${event.id})}"
+				<tr th:each="location : ${listLocations}">
+					<td th:text="${location.locationName}"></td>
+					<td th:text="${location.locationAddress}"></td>
+					<td	th:text="${location.locationDescription}"></td>
+					<td><a th:href="@{/showLocationForUpdate/{id}(id=${location.id})}"
+						class="btn btn-outline-info btn-sm">Update</a> 
+						<a th:href="@{/deleteLocation/{id}(id=${location.id})}"
 						class="btn btn-outline-danger btn-sm">Delete</a></td>
 				</tr>
 			</tbody>

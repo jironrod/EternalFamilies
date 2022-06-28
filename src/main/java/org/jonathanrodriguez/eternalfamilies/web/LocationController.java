@@ -1,8 +1,6 @@
 package org.jonathanrodriguez.eternalfamilies.web;
 
-import org.jonathanrodriguez.eternalfamilies.model.Event;
 import org.jonathanrodriguez.eternalfamilies.model.Location;
-import org.jonathanrodriguez.eternalfamilies.service.EventService;
 import org.jonathanrodriguez.eternalfamilies.service.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +16,8 @@ public class LocationController {
 	@Autowired
 	private LocationService locationService;
 	
-	@GetMapping("/locationtForm")
-	public String showNewEventForm(Model model) {
+	@GetMapping("/locationForm")
+	public String showNewLocationForm(Model model) {
 
 		// create model attribute to bind form data
 		Location location = new Location();
@@ -37,8 +35,8 @@ public class LocationController {
 		return "redirect:/locations";
 	}
 
-	@GetMapping("/showFormForUpdate/{id}")
-	public String showFormForUpdate(@PathVariable(value = "id") long id, Model model) {
+	@GetMapping("/showLocationForUpdate/{id}")
+	public String showLocationForUpdate(@PathVariable(value = "id") long id, Model model) {
 
 		// get location from the service
 		Location location = locationService.getLocationById(id);

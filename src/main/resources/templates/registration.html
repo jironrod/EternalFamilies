@@ -13,10 +13,11 @@
 <body>
 
 	<br>
-	<br>
 	
 	<div class="container">
+	
 		<div class="row">
+		
 			<div class="col-md-6 col-md-offset-3">
 
 				<!-- success message -->
@@ -29,42 +30,41 @@
 				<form th:action="@{/registration}" method="post" th:object="${user}">
 					<div class="form-group">
 						<label class="control-label" for="firstName"> First Name </label>
-						<input id="firstName" class="form-control" th:field="*{firstName}"
-							required autofocus="autofocus" />
+						<input id="firstName" class="form-control" th:field="*{firstName}" required autofocus="autofocus" />
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="lastName"> Last Name </label> <input
-							id="lastName" class="form-control" th:field="*{lastName}"
-							required autofocus="autofocus" />
+						<label class="control-label" for="lastName"> Last Name </label> 
+						<input id="lastName" class="form-control" th:field="*{lastName}" required autofocus="autofocus" />
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="email"> Email </label> <input
-							id="email" class="form-control" th:field="*{email}" required
-							autofocus="autofocus" />
+						<label class="control-label" for="email"> Email </label> 
+						<input id="email" class="form-control" th:field="*{email}" required autofocus="autofocus" />
 					</div>
 
 					<div class="form-group">
-						<label class="control-label" for="password"> Password </label> <input
-							id="password" class="form-control" type="password"
-							th:field="*{password}" required autofocus="autofocus" />
+						<label class="control-label" for="password"> Password </label>
+						<input id="password" class="form-control" type="password" th:field="*{password}" required autofocus="autofocus" />
 					</div>
 
 					<br>
 
 					<div class="form-group">
+					
 						<div class="row">
+						
 							<div class="col-sm-6 col-sm-offset-3">
-								<input type="submit" name="register" id="register"
-									class="btn btn-success" value="Register">
+							
+								<input type="submit" name="register" id="register" class="btn btn-success" value="Register">
+								
 							</div>
 						</div>
 					</div>
 						
 						<br>
 						
-						<span>Already registered? <a href="/" th:href="@{/login}">Log in Here</a></span>
+						<span>Already registered? <a href="/" th:href="@{/login}">Log In Here</a></span>
 				</form>
 			</div>
 		</div>
