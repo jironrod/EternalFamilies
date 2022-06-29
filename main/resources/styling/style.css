@@ -1,0 +1,12 @@
+@charset "ISO-8859-1";
+
+img {
+	
+position: absolute;
+width: 1680px;
+height: 960px;
+left: 0px;
+top: 0px;
+
+background: url(DCTemple.jpg);
+}
