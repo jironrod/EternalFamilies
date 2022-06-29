@@ -7,12 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import lombok.Builder;
-
-@Builder
 @Entity
-@Table(name = "events")
-public class Event {
+@Table(name = "employees")
+public class Events {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

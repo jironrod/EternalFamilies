@@ -24,6 +24,7 @@ public class UserServiceImplementation implements UserService {
 	@Autowired
 	private UserRepository userRepository;
 
+	// BCrypt
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
 
@@ -32,6 +33,7 @@ public class UserServiceImplementation implements UserService {
 		this.userRepository = userRepository;
 	}
 
+	// registration
 	@Override
 	public User save(UserRegistrationDto registrationDto) {
 
@@ -42,6 +44,7 @@ public class UserServiceImplementation implements UserService {
 		return userRepository.save(user);
 	}
 
+	// validation
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -59,12 +62,14 @@ public class UserServiceImplementation implements UserService {
 		return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
 	}
 
+	// community hub R(all)
 	@Override
 	public List<User> getAllUsers() {
 
 		return userRepository.findAll();
 	}
 
+	// community hub R(one)
 	@Override
 	public User getUserById(long id) {
 

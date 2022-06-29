@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class LocationController {
-	
+
 	@Autowired
 	private LocationService locationService;
-	
+
 	@GetMapping("/locationForm")
 	public String showNewLocationForm(Model model) {
 

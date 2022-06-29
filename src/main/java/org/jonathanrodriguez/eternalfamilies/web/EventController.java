@@ -12,15 +12,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class EventController {
-	
+
+	// dependency injection
 	@Autowired
 	private EventService eventService;
-	
+
+	// routing
 	@GetMapping("/eventForm")
 	public String showNewEventForm(Model model) {
 
 		// create model attribute to bind form data
 		Event event = new Event();
+
 		model.addAttribute("event", event);
 
 		return "new_event";

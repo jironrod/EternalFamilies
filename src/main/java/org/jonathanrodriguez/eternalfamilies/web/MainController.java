@@ -30,6 +30,8 @@ public class MainController {
 		return "index";
 	}
 
+	// @GetMapping("/photos")
+
 	@GetMapping("/events")
 	public String viewEvents(Model model) {
 

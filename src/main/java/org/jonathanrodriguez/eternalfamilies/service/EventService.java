@@ -13,6 +13,6 @@ public interface EventService {
 	void saveEvent(Event event);
 
 	Event getEventById(long id);
-	
+
 	void deleteEventById(long id);
 }
