@@ -11,8 +11,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light"
-		style="background-color: #e3f2fd;">
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
 
 		<div class="container-fluid">
 
@@ -20,11 +19,14 @@
 
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
-				<a class="nav-link" href="#">Photos</a> <a class="nav-link"
-					href="/events">Events</a> <a class="nav-link" href="/locations">Locations</a>
+				<a class="nav-link" href="#">Photos</a> 
+				<a class="nav-link" href="/events">Events</a> 
+				<a class="nav-link" href="/locations">Locations</a>
 				<a class="nav-link" href="/community">Community</a>
 			</div>
+			
 			<div class="navbar-nav">
+			
 				<a href="/login" class="btn btn-info ml-5" role="button">Log Out</a>
 
 			</div>
@@ -40,6 +42,7 @@
 		<hr>
 
 		<table class="table">
+		
 			<thead>
 				<tr>
 					<th>Eternal First Name</th>
@@ -48,6 +51,7 @@
 					<th>Contact</th>
 				</tr>
 			</thead>
+			
 			<tbody>
 				<tr th:each="user : ${listUsers}">
 					<td th:text="${user.firstName}"></td>
@@ -56,6 +60,7 @@
 					<td><a href="#" class="btn btn-outline-info btn-sm">Message</a>
 				</tr>
 			</tbody>
+			
 		</table>
 
 		<a th:href="@{/}" class="btn btn-outline-light">Back to Home</a>

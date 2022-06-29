@@ -42,25 +42,33 @@
 		<a th:href="@{/eventForm}" class="btn btn-primary mb-2">Add Event</a>
 		
 		<table class="table">
+		
 			<thead>
 				<tr>
 					<th>Event Name</th>
 					<th>Event Location</th>
 					<th>Event Description</th>
+					<!-- <th>Eternal</th> -->
 					<th>Actions</th>
 				</tr>
 			</thead>
+			
 			<tbody>
 				<tr th:each="event : ${listEvents}">
 					<td th:text="${event.eventName}"></td>
 					<td th:text="${event.eventLocation}"></td>
-					<td		 th:text="${event.eventDescription}"></td>
-					<td><a th:href="@{/showEventForUpdate/{id}(id=${event.id})}"
-						class="btn btn-outline-info btn-sm">Update</a> <a
-						th:href="@{/deleteEvent/{id}(id=${event.id})}"
-						class="btn btn-outline-danger btn-sm">Delete</a></td>
+					<td	th:text="${event.eventDescription}"></td>
+					<td><a th:href="@{/showEventForUpdate/{id}(id=${event.id})}" class="btn btn-outline-info btn-sm">Update</a> 
+						<a th:href="@{/deleteEvent/{id}(id=${event.id})}" class="btn btn-outline-danger btn-sm">Delete</a>
+					</td>
 				</tr>
+				<!-- attempted to implement users who have created respective events -->
+		<!--	<tr th:each="user : ${listUsers}">
+					<td th:text="${user.firstName}"></td>
+					<td th:text="${user.lastName}"></td>	
+				</tr> 										-->
 			</tbody>
+			
 		</table>
 
 		<a th:href="@{/}" class="btn btn-outline-light">Back to Home</a>
